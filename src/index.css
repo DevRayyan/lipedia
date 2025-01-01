@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+:root {
+  --color-primary: #0D7C66;
+}
+body {
+  font-family: "Inter", sans-serif;
+}
+
+.user-msg {
+  @apply bg-[#0D7C66] text-white p-2 px-5 rounded-lg;
+}
+.bot-msg {
+  @apply bg-white text-stone-800 p-2 px-5 rounded-lg shadow-sm border border-stone-300;
+  max-width: 100% !important;
+  line-height: 30px;
+}
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #282c343a;
+  border-radius: 3px;
+}
+
+.font-inter {
+  font-family: "Inter", sans-serif !important;
+}
+
+ul{
+  list-style: disc;
+}
+ol{
+  list-style: decimal;
+}
