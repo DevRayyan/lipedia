@@ -5,6 +5,9 @@ export default {
   ],
   theme: {
     extend: {
+      colors: {
+        primary: '#0D7C66',
+      },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
       },

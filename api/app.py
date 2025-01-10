@@ -15,12 +15,23 @@ import numpy as np
 from langchain_community.llms import OpenAI
 from langchain.chains.question_answering import load_qa_chain
 from langchain.schema import Document
+from fastapi.middleware.cors import CORSMiddleware
 
 # Load environment variables
 load_dotenv()
 
 # Initialize FastAPI app
+
 app = FastAPI()
+
+# Configure CORS
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Allows all domains to make requests, can replace '' with specific domains
+    allow_credentials=True,
+    allow_methods=["*"],  # Allows all HTTP methods like GET, POST, PUT, DELETE
+    allow_headers=["*"],  # Allows all headers in requests
+)
 
 # Knowledge base storage
 knowledge_base_path = "knowledge_base.pkl"
@@ -136,7 +147,7 @@ async def ask_question(request: QueryRequest):
             external_response = llm(f"Provide additional information about: {question}")
             return {
                 "pdf_response": pdf_response,
-                "supplemental_response": external_response
+                "supplemental_response": external_response,
             }
 
         elif min_distance < partial_relevance_threshold:
