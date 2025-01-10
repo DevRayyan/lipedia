@@ -12,3 +12,4 @@ numpy
 openai
 scikit-learn
 python-multipart
+tiktoken
